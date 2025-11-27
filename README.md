@@ -78,8 +78,12 @@ This scenario involves the following key objectives:
 ### Dig into a sample Agent (TripRequestAgent)
 In this section, we will explore the architecture and functionality of the TripRequestAgent.
 
-![Trip_Request_AI_Agent](images/Trip_Request_AI_Agent.png)
 
+![Trip_Request_AI_Agent](images/Trip_Request_AI_Agent.png)
+This diagram illustrates the internal components and workflow of the TripRequestAgent:
+1. How AI Agent interacts with the Explainability Database to log decision traces.
+2. How AI Agent communicate with LLM includes tools calling to enhance decision-making.
+3. The logs and decision traces are stored in the Explainability Database for later retrieval and analysis.
 
 
 ### Explainability Layer
@@ -91,10 +95,19 @@ In this section, we will explore the architecture and functionality of the TripR
 ### Explainability Data Model
 1. DecisionTrace: Records the sequence of reasoning steps taken by agents.
 2. ConflictRecord: Captures conflicts between agents and their resolutions.
+3. Session: Each request and its associated decision traces and explanations.
+
+![Explainability_Data_Model](images/Explainability_Data_Model.png)
 
 ### Web-Based Interface
+#### Sessions Management View
+![Sessions_View](images/Sessions_Management_Dashboard_Overview.png)
 
+### Workflow of Explainable Agentic AI Control Layer
+![Workflow_of_Explainable_Agentic_AI_Control_Layer](images/Agents_WorkFlow.png)
 
+### Agent Details View
+![Agent_Details_View](images/Agent_Details.png)
 
 
 
