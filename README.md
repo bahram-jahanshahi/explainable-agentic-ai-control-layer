@@ -75,6 +75,13 @@ This scenario involves the following key objectives:
 
 ![Multi Agent System](images/multi_agent_system.png)
 
+### Dig into a sample Agent (TripRequestAgent)
+In this section, we will explore the architecture and functionality of the TripRequestAgent.
+
+![Trip_Request_AI_Agent](images/Trip_Request_AI_Agent.png)
+
+
+
 ### Explainability Layer
 1. Capture decision paths: Each agent records the reasoning steps taken to arrive at a decision.
 2. Conflict resolution: Highlight any conflicts between agents and how they were resolved.
