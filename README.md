@@ -49,28 +49,31 @@ This scenario involves the following key objectives:
 3. Managers are responsible for reviewing and approving these trip requests based on company policies, budget constraints, and individual employee entitlements.
 4. The system should provide transparency into the decision-making process, allowing employees and managers to understand why certain requests were approved or denied (Explainability).
 ### Ontology Design
+#### Why Ontology?
+1. An ontology provides a structured representation of the key concepts and relationships in the trip approval domain
+2. It enables semantic reasoning by defining classes, properties, and constraints that capture the decision-making criteria.
+3. It facilitates interoperability and knowledge sharing among different agents and components in the system.
+#### Ontology Components
 1. Key concepts: Employee, TripRequest, Manager, ApprovalDecision, CompanyPolicy, Budget, Entitlement.
 2. Relationships: Employee submits TripRequest; Manager reviews TripRequest; ApprovalDecision is based on CompanyPolicy, Budget, and Entitlement.
 3. Entity Relationship Diagram (ERD):
-   ```
-   [Employee] --submits--> [TripRequest] --reviewed by--> [Manager]
-   [TripRequest] --results in--> [ApprovalDecision]
-   [ApprovalDecision] --based on--> [CompanyPolicy]
-   [ApprovalDecision] --based on--> [Budget]
-   [ApprovalDecision] --based on--> [Entitlement]
-   ```
+
+![Trip Approval Ontology ERD](images/ontology.png)
    
-### Knowledge Graph Implementation
-1. Use a graph database (e.g., Neo4j) to represent the ontology.
-2. Nodes: Employee, TripRequest, Manager, ApprovalDecision, CompanyPolicy, Budget, Entitlement.
-3. Edges: submits, reviewed by, results in, based on.
+### Knowledge Graph Implementation by relational Database
+1. Tables: Employees, TripRequests, Managers, ApprovalDecisions, CompanyPolicies, Budgets, Entitlements.
+2. Relationships: Foreign keys to represent relationships between entities (e.g., TripRequests linked to Employees and Managers).
+3. Semantic reasoning: Implement rules and constraints to evaluate trip requests based on policies, budgets, and entitlements.
+4. Example of relational databases: MySQL, Oracle, and etc.
 
 ### Multi-Agent System
 1. Agents: TripRequestAgent, ApprovalAgent, PolicyAgent, BudgetAgent, EntitlementAgent.
 2. TripRequestAgent collects trip requests and forwards them to ApprovalAgent. 
 3. ApprovalAgent coordinates with PolicyAgent, BudgetAgent, and EntitlementAgent to evaluate requests.
-4. Each agent uses semantic reasoning over the KG to make decisions and progressively improve its expertise.
+4. Each agent uses the knowledge graph database to access relevant data and make decisions.
 5. Agents log their reasoning steps and decisions for explainability.
+
+![Multi Agent System](images/multi_agent_system.png)
 
 ### Explainability Layer
 1. Capture decision paths: Each agent records the reasoning steps taken to arrive at a decision.
